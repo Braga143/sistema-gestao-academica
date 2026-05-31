@@ -17,7 +17,7 @@ public class MenuAluno {
        private DateTimeFormatter formatter;
        
        
-       public MenuAluno(Aluno aluno, AlunoServico alunoServico) {
+       public MenuAluno(AlunoServico alunoServico) {
            this.alunoServico = alunoServico;
            this.scanner = new Scanner(System.in);
            this.formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -44,11 +44,11 @@ public class MenuAluno {
                 case 2:
                     System.out.println("\n=== LISTA DE ALUNOS ===");
                     // Verifica se a lista retornada pelo serviço está vazia
-                    if (AlunoServico.listarTodos().isEmpty()) {
+                    if (alunoServico.listartodos().isEmpty()) {
                         System.out.println("Nenhum aluno cadastrado.");
                     } else {
                         // Percorre e imprime cada objeto utilizando o método toString()
-                        AlunoServico.listarTodos().forEach(System.out::println);
+                        alunoServico.listartodos().forEach(System.out::println);
                     }
                     break;
                 case 3:
@@ -86,7 +86,7 @@ public class MenuAluno {
             System.out.print("Matricula: ");
             String matricula = scanner.nextLine();
             
-            AlunoServico.Cadastrar(id, nome, telefone, email, senha, data, matricula);
+            alunoServico.Cadastrar(id, nome, email, telefone, data, senha, "ATIVO");
             
             }
         catch (Exception e){
@@ -100,7 +100,7 @@ public class MenuAluno {
     int id = scanner.nextInt();
     scanner.nextLine();
     
-    Aluno aluno = AlunoServico.buscaPorID(id);
+    Aluno aluno = alunoServico.buscaPorID(id);
     
     if (aluno != null){
          System.out.print("Novo Nome (" + aluno.getNome() + "): ");
@@ -111,7 +111,7 @@ public class MenuAluno {
             String email = scanner.nextLine();
             System.out.print("Nova senha: ");
             String senha = scanner.nextLine();
-          AlunoServico.AtualizarDados(id, nome, telefone, email, senha);
+          alunoServico.AtualizarDados(id, nome, email, telefone, senha, aluno.getStatus());
     } else {
             System.out.println("Aluno não encontrado.");
         }
@@ -124,6 +124,6 @@ private void excluirAluno() {
         scanner.nextLine(); 
         
         // Solicita ao serviço a remoção do objeto correspondente ao ID informado
-        AlunoServico.excluirAluno(id);
+        alunoServico.excluirAluno(id);
     }
 }
