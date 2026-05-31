@@ -18,7 +18,7 @@ public class MenuProfessor {
     public MenuProfessor(ProfessorServico professorServico) {
         this.professorServico = professorServico;
         this.scanner = new Scanner(System.in); // Inicializa o leitor para capturar dados do console
-        this.formatter = DateTimeFormatter.ofPattern("dd/mm/yyyy"); // Define o formato para datas
+        this.formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Define o formato para datas
     }
 
     // Método principal do menu responsável por gerenciar a navegação do usuário
