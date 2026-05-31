@@ -71,9 +71,9 @@ public class MenuPrincipal {
             switch (opcao) {
 
                 case 1:
-
-                    System.out.println("Menu Aluno ainda em desenvolvimento.");
-
+                    MenuAluno menuAluno = new MenuAluno(alunoServico);
+                    menuAluno.exibirMenu();
+                    
                     break;
 
                 case 2:
