@@ -20,7 +20,7 @@ public class MenuAluno {
        public MenuAluno(Aluno aluno, AlunoServico alunoServico) {
            this.alunoServico = alunoServico;
            this.scanner = new Scanner(System.in);
-           this.formater = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+           this.formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
            
        }
     public void exibirMenu (){
@@ -52,7 +52,7 @@ public class MenuAluno {
                     }
                     break;
                 case 3:
-                    AtualizarDados(); // Chama a função para modificar um registro existente
+                    AtualizarAluno(); // Chama a função para modificar um registro existente
                     break;
                 case 4:
                     excluirAluno(); // Chama a função para remover um registro
@@ -79,23 +79,51 @@ public class MenuAluno {
             String email = scanner.nextLine();
             System.out.print("senha: ");
             String senha = scanner.nextLine();
-            System.out.print("Data de Nascimento (dd/mm/yyyy): ");
+            System.out.print("Data de Nascimento (dd/MM/yyyy): ");
+
             LocalDate data = LocalDate.parse(scanner.nextLine(), formatter);
             
-            System.out.println("Matricula Ativa-----1");
-            System.out.println("Matricula Inativa-----2");
-            System.out.print("Selecione o Satus da matricula: ");
-            int status = scanner.nextInt();
+            System.out.print("Matricula: ");
+            String matricula = scanner.nextLine();
             
-            switch(status){
-                case 1:
-                    AlunoServico.Cadastrar(id, nome, telefone, email, data, status);
+            AlunoServico.Cadastrar(id, nome, telefone, email, senha, data, matricula);
+            
             }
-        } catch (Exception e){
+        catch (Exception e){
         System.out.print("Erro nos dados digitados. Operação cancelada.");
         }
+    }
+    
+    //update
+    private void AtualizarAluno(){
+    System.out.print("Digite o ID do aluno para atualizar: ");
+    int id = scanner.nextInt();
+    scanner.nextLine();
+    
+    Aluno aluno = AlunoServico.buscaPorID(id);
+    
+    if (aluno != null){
+         System.out.print("Novo Nome (" + aluno.getNome() + "): ");
+            String nome = scanner.nextLine();
+            System.out.print("Novo Telefone (" + aluno.getTelefone() + "): ");
+            String telefone = scanner.nextLine();
+            System.out.print("Novo Email (" + aluno.getEmail() + "): ");
+            String email = scanner.nextLine();
+            System.out.print("Nova senha: ");
+            String senha = scanner.nextLine();
+          AlunoServico.AtualizarDados(id, nome, telefone, email, senha);
+    } else {
+            System.out.println("Aluno não encontrado.");
+        }
+    } 
+ 
+    //Delete
+private void excluirAluno() {
+        System.out.print("Digite o ID do Aluno que deseja excluir: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); 
         
+        // Solicita ao serviço a remoção do objeto correspondente ao ID informado
+        AlunoServico.excluirAluno(id);
     }
 }
-    
-
