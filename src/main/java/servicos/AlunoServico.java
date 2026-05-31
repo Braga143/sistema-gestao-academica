@@ -17,7 +17,7 @@ public class AlunoServico {
     }
 
     //Criar
-    public void CadastrarAluno (int id, String nome, String email, String telefone,
+    public void Cadastrar (int id, String nome, String email, String telefone,
             LocalDate dataNascimento, String senha, String status) {
             Aluno novoAluno = new Aluno (id, nome, email, telefone, dataNascimento, senha, status);
 
