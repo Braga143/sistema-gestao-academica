@@ -4,41 +4,119 @@
  */
 package menus;
 
-import classes.Aluno;
-import classes.Professor;
 import servicos.AlunoServico;
 import servicos.ProfessorServico;
+import servicos.CursoServico;
+import servicos.MatriculaServico;
+import servicos.AvaliacaoServico;
 
 import java.util.Scanner;
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDate;
 
 public class MenuPrincipal {
-    private final AlunoServico alunoServico;
-    private final ProfessorServico professorServico;
-    private final Scanner scanner;
-    private final DateTimeFormatter formatadorData;
-    
-    public MenuPrincipal(AlunoServico alunoServico, ProfessorServico professorServico) {
+
+    // Serviços
+    private AlunoServico alunoServico;
+    private ProfessorServico professorServico;
+    private CursoServico cursoServico;
+    private MatriculaServico matriculaServico;
+    private AvaliacaoServico avaliacaoServico;
+
+    // Scanner
+    private Scanner scanner;
+
+    // ==========================
+    // CONSTRUTOR
+    // ==========================
+
+    public MenuPrincipal(
+            AlunoServico alunoServico,
+            ProfessorServico professorServico,
+            CursoServico cursoServico,
+            MatriculaServico matriculaServico,
+            AvaliacaoServico avaliacaoServico) {
+
         this.alunoServico = alunoServico;
         this.professorServico = professorServico;
-        
-        // Aqui dentro você cria as instâncias internas normalmente:
+        this.cursoServico = cursoServico;
+        this.matriculaServico = matriculaServico;
+        this.avaliacaoServico = avaliacaoServico;
+
         this.scanner = new Scanner(System.in);
-        this.formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     }
-    
-    public void exibirMenu(){
-    int opcao = 0;
-    
-    while (opcao !=3){
-        System.out.println("\n=================================");
-        System.out.println("    SISTEMA ACADÊMICO - MENU     ");
-        System.out.println("=================================");
-        System.out.println("1. Gerenciar Alunos");
-        System.out.println("2. Gerenciar Professores");
-        System.out.println("3. Sair do Sistema");
-        System.out.print("Escolha uma opção: ");
-    }
+
+    // ==========================
+    // MENU PRINCIPAL
+    // ==========================
+
+    public void exibirMenu() {
+
+        int opcao;
+
+        do {
+
+            System.out.println("\n=================================");
+            System.out.println("      SISTEMA ACADÊMICO");
+            System.out.println("=================================");
+            System.out.println("1. Gerenciar Alunos");
+            System.out.println("2. Gerenciar Professores");
+            System.out.println("3. Gerenciar Cursos");
+            System.out.println("4. Gerenciar Matrículas");
+            System.out.println("5. Gerenciar Avaliações");
+            System.out.println("0. Sair");
+            System.out.print("Escolha uma opção: ");
+
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+
+                case 1:
+
+                    System.out.println("Menu Aluno ainda em desenvolvimento.");
+
+                    break;
+
+                case 2:
+
+                    MenuProfessor menuProfessor = new MenuProfessor(professorServico);
+
+                    menuProfessor.exibirMenu();
+
+                    break;
+
+                case 3:
+
+                    System.out.println("Menu Curso ainda em desenvolvimento.");
+
+                    break;
+
+                case 4:
+
+                    MenuMatricula menuMatricula = new MenuMatricula(matriculaServico, alunoServico, cursoServico);
+
+                    menuMatricula.exibirMenu();
+
+                    break;
+
+                case 5:
+
+                    MenuAvaliacao menuAvaliacao = new MenuAvaliacao(avaliacaoServico, matriculaServico);
+
+                    menuAvaliacao.exibirMenu();
+
+                    break;
+
+                case 0:
+
+                    System.out.println("Sistema encerrado com sucesso!");
+
+                    break;
+
+                default:
+
+                    System.out.println("Opção inválida!");
+            }
+
+        } while (opcao != 0);
     }
 }
