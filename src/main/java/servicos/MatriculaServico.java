@@ -104,4 +104,27 @@ public class MatriculaServico {
         
         return true;
     }
+
+    public java.util.ArrayList<Matricula>
+        listarMatriculas() {
+
+    return matriculaRepo.listar();
+    }
+
+    /**
+     * Busca matrícula pelo ID.
+     */
+    public Matricula buscarPorId(
+        int idMatricula) {
+
+    return matriculaRepo.buscaPorId(idMatricula);
+    }
+
+    /**
+    * Cancela matrícula.
+    */
+    public void cancelarMatricula(int idMatricula) {
+
+        cancelarmatricula(idMatricula);
+    }
 }

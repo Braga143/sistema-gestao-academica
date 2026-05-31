@@ -63,5 +63,13 @@ public class AlunoServico {
     System.out.println("Erro: Aluno não encontrado para exclusão!");
         }
     }
+
+    /**
+    * Busca aluno pelo ID.
+    */
+    public Aluno buscarPorId(int idAluno) {
+
+    return AlunoRepo.buscaPorId(idAluno);
+    }
 }
 
