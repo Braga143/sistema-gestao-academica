@@ -65,7 +65,7 @@ public class AvaliacaoRepositorio {
     //Remove a avaliacao utilizando o id 
     
     public boolean remover(int idAvaliacao){
-        Avaliacao avaliacao = buscarPorId(idAvaliacao);
+        Avaliacao avaliacao = buscaPorID(idAvaliacao);
         
         if (avaliacao != null){
             avaliacoes.remove(avaliacao);
