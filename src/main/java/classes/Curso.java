@@ -30,7 +30,8 @@ public class Curso {
     this.diasSemana = diasSemana;
     this.quantidadeMaximaAlunos = quantidadeMaximaAlunos;
     this.professor = professor;
-    this.quantidadeMatriculados = quantidadeMatriculados;
+    this.quantidadeMatriculados = 0;
+    this.status = "Ativo";
     }
 
     /**
@@ -180,5 +181,12 @@ public class Curso {
     public void adicionarAluno() {
         if (possuiVaga())
             quantidadeMatriculados ++;
+    }
+    
+    //Remove um aluno do curso.
+    public void removerAluno() {
+        if (quantidadeMatriculados > 0){
+            quantidadeMatriculados--;
+        }
     }
 }
