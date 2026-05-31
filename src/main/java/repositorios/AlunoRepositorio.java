@@ -2,91 +2,59 @@ package repositorios;
 
 import classes.Aluno;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AlunoRepositorio {
-
-    // 1. Interface (Contrato)
-    public interface AlunoRepo {
-        void salvar(Aluno aluno);           // Create
-        Aluno buscarPorId(int id);          // Read (Individual)
-        List<Aluno> listarTodos();          // Read (Geral)
-        void atualizar(Aluno aluno);        // Update
-        void deletar(int id);               // Delete
+    
+    // Lista que vai simular o Banco de Dados
+    private ArrayList<Aluno> alunos;
+    
+    // Construtor
+    public AlunoRepositorio() {
+        alunos = new ArrayList<>();
     }
-
-    // 2. Implementação (Faltava o 'implements AlunoRepo')
-    public static class AlunoRepoImpl implements AlunoRepo {
+    
+    // Criar
+    
+    // Salvar
+    public void adicionar(Aluno aluno) {
+        alunos.add(aluno); 
+    }
+    
+    // Listar
+    
+    // Retorna todos os alunos
+    public ArrayList<Aluno> listar(){
+        return alunos;
+    }
+    
+    // Busca o ID
+    
+    // busca o aluno pelo id 
+    public Aluno buscaPorId(int id){
         
-        private final List<Aluno> bancoDeDadosAlunos = new ArrayList<>();   
-
-        // Criar
-        @Override
-        public void salvar(Aluno aluno) {
-            if (aluno != null) {
-                // Adiciona o aluno à lista (isso estava faltando!)
-                bancoDeDadosAlunos.add(aluno); 
-                System.out.println("Sucesso: Aluno " + aluno.getNome() + " cadastrado com sucesso!");
-            } else {
-                System.out.println("ERRO: Por favor, insira um aluno válido!");
-            }
-        }
-
-        // Ler por ID
-        
-        @Override
-        public Aluno buscarPorId(int id) {
-            for (Aluno aluno : bancoDeDadosAlunos) {
-                if (aluno.getId() == id) { 
-                    return aluno;
-                }
-            }
-            System.out.println("ERRO: ID " + id + " não encontrado!");
-            return null;
-        }
-
-        // Listar Todos
-
-        @Override
-        public List<Aluno> listarTodos() {
-            return new ArrayList<>(bancoDeDadosAlunos);   
-        }
-
-        // Atualizar
-
-        @Override
-        public void atualizar(Aluno alunoAtualizado) {
-            if (alunoAtualizado == null) return;
-
-            Aluno alunoExistente = buscarPorId(alunoAtualizado.getId());
+        for (Aluno aluno : alunos){
             
-            if (alunoExistente != null) {
-                alunoExistente.setNome(alunoAtualizado.getNome());
-                alunoExistente.setEmail(alunoAtualizado.getEmail());
-                alunoExistente.setTelefone(alunoAtualizado.getTelefone());
-                alunoExistente.setDataNascimento(alunoAtualizado.getDataNascimento());
-                alunoExistente.setSenha(alunoAtualizado.getSenha());
-                alunoExistente.setStatus(alunoAtualizado.getStatus());
+            if (aluno.getId() == id){
                 
-                System.out.println("Sucesso: Dados do aluno ID " + alunoAtualizado.getId() + " atualizados!");
-            } else {
-                System.out.println("Erro: Não foi possível atualizar. Aluno ID " + alunoAtualizado.getId() + " não existe.");
+                return aluno;
             }
         }
+        
+        return null;
+    }
+    
+    // Remover
 
-        // Deletar
-
-        @Override
-        public void deletar(int id) {
-            // Correção: de buscarPorID para buscarPorId
-            Aluno aluno = buscarPorId(id); 
-            if (aluno != null) {
-                // Correção de digitação: bancoDeDadosAlunos
-                bancoDeDadosAlunos.remove(aluno); 
-                System.out.println("Sucesso: Aluno ID " + id + " removido do sistema.");
-            } else {
-                System.out.println("ERRO: Não foi possível deletar. Aluno ID " + id + " não encontrado.");
-            }
+    // remove o aluno pelo id
+    public boolean remover(int id){
+        Aluno aluno = buscaPorId(id);
+        
+        if (aluno != null){
+            alunos.remove(aluno);
+            
+            return true;
         }
+        
+        return false;
     }
 }
