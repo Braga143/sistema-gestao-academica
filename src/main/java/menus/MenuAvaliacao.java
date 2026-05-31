@@ -49,19 +49,19 @@ public class MenuAvaliacao {
 
         do {
 
-            System.out.println("\n--- GESTÃO DE AVALIAÇÕES ---");
+            System.out.println("\n--- GESTAO DE AVALIACOES ---");
 
-            System.out.println("1. Realizar Avaliação");
+            System.out.println("1. Realizar Avaliacao");
 
-            System.out.println("2. Listar Avaliações");
+            System.out.println("2. Listar Avaliacoes");
 
-            System.out.println("3. Buscar Avaliação por ID");
+            System.out.println("3. Buscar Avaliacao por ID");
 
-            System.out.println("4. Remover Avaliação");
+            System.out.println("4. Remover Avaliacao");
 
             System.out.println("0. Voltar ao Menu Principal");
 
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
 
             opcao =
                     scanner.nextInt();
@@ -91,7 +91,7 @@ public class MenuAvaliacao {
                     break;
 
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opcao invalida!");
             }
 
         } while (opcao != 0);
@@ -103,7 +103,7 @@ public class MenuAvaliacao {
 
     private void realizarAvaliacao() {
 
-        try {System.out.print("ID da Avaliação: ");
+        try {System.out.print("ID da Avaliacao: ");
 
             int idAvaliacao =scanner.nextInt();
             scanner.nextLine();
@@ -120,7 +120,7 @@ public class MenuAvaliacao {
 
             if (matricula == null) {
 
-                System.out.println("Matrícula não encontrada.");
+                System.out.println("Matrícula nao encontrada.");
 
                 return;
             }
@@ -131,7 +131,7 @@ public class MenuAvaliacao {
 
             scanner.nextLine();
 
-            System.out.print("Comentário: ");
+            System.out.print("Comentario: ");
 
             String comentario = scanner.nextLine();
 
@@ -140,7 +140,7 @@ public class MenuAvaliacao {
 
         } catch (Exception e) {
 
-            System.out.println("Erro ao realizar avaliação.");
+            System.out.println("Erro ao realizar avaliacao.");
         }
     }
 
@@ -150,11 +150,11 @@ public class MenuAvaliacao {
 
     private void listarAvaliacoes() {
 
-        System.out.println("\n=== LISTA DE AVALIAÇÕES ===");
+        System.out.println("\n=== LISTA DE AVALIACOES ===");
 
         if (avaliacaoServico.listarAvaliacaos().isEmpty()) {
 
-            System.out.println("Nenhuma avaliação cadastrada.");
+            System.out.println("Nenhuma avaliacao cadastrada.");
 
         } else {
 
@@ -173,7 +173,7 @@ public class MenuAvaliacao {
 
     private void buscarAvaliacao() {
 
-        System.out.print("Digite o ID da avaliação: ");
+        System.out.print("Digite o ID da avaliacao: ");
 
         int id = scanner.nextInt(); scanner.nextLine();
 
@@ -185,7 +185,7 @@ public class MenuAvaliacao {
 
         } else {
 
-            System.out.println("Avaliação não encontrada.");
+            System.out.println("Avaliacao nao encontrada.");
         }
     }
 
@@ -195,7 +195,7 @@ public class MenuAvaliacao {
 
     private void removerAvaliacao() {
 
-        System.out.print("Digite o ID da avaliação: ");
+        System.out.print("Digite o ID da avaliacao: ");
 
         int id = scanner.nextInt();
 

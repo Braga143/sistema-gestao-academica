@@ -39,7 +39,7 @@ public class MenuCurso {
 
         do {
 
-            System.out.println("\n--- GESTÃO DE CURSOS ---");
+            System.out.println("\n--- GESTAO DE CURSOS ---");
 
             System.out.println("1. Cadastrar Curso");
 
@@ -53,7 +53,7 @@ public class MenuCurso {
 
             System.out.println("0. Voltar ao Menu Principal");
 
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
 
             opcao =
                     scanner.nextInt();
@@ -87,7 +87,7 @@ public class MenuCurso {
                     break;
 
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opcao invalida!");
             }
 
         } while (opcao != 0);
@@ -111,11 +111,11 @@ public class MenuCurso {
 
             String tituloCurso = scanner.nextLine();
 
-            System.out.print("Descrição: ");
+            System.out.print("Descricao: ");
 
             String descricao = scanner.nextLine();
 
-            System.out.print("Carga Horária: ");
+            System.out.print("Carga Horaria: ");
 
             String cargaHoraria = scanner.nextLine();
 
@@ -127,7 +127,7 @@ public class MenuCurso {
 
             String diasSemana = scanner.nextLine();
 
-            System.out.print("Quantidade Máxima de Alunos: ");
+            System.out.print("Quantidade Maxima de Alunos: ");
 
             int quantidadeMaximaAlunos =
                     scanner.nextInt();
@@ -203,7 +203,7 @@ public class MenuCurso {
 
         } else {
 
-            System.out.println("Curso não encontrado.");
+            System.out.println("Curso nao encontrado.");
         }
     }
 
@@ -213,7 +213,7 @@ public class MenuCurso {
 
     private void atualizarCurso() {
 
-        System.out.println("Função em desenvolvimento.");
+        System.out.println("Funcao em desenvolvimento.");
     }
 
     // ==========================
@@ -237,7 +237,7 @@ public class MenuCurso {
 
         } else {
 
-            System.out.println("Curso não encontrado.");
+            System.out.println("Curso nao encontrado.");
         }
     }
 }

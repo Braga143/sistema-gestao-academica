@@ -55,15 +55,15 @@ public class MenuPrincipal {
         do {
 
             System.out.println("\n=================================");
-            System.out.println("      SISTEMA ACADÊMICO");
+            System.out.println("      SISTEMA ACADEMICO");
             System.out.println("=================================");
             System.out.println("1. Gerenciar Alunos");
             System.out.println("2. Gerenciar Professores");
             System.out.println("3. Gerenciar Cursos");
-            System.out.println("4. Gerenciar Matrículas");
-            System.out.println("5. Gerenciar Avaliações");
+            System.out.println("4. Gerenciar Matriculas");
+            System.out.println("5. Gerenciar Avaliacoes");
             System.out.println("0. Sair");
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
 
             opcao = scanner.nextInt();
             scanner.nextLine();
@@ -114,7 +114,7 @@ public class MenuPrincipal {
 
                 default:
 
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opcao invalida!");
             }
 
         } while (opcao != 0);

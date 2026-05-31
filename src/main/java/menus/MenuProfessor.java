@@ -26,13 +26,13 @@ public class MenuProfessor {
         int opcao;
         // Laço de repetição do-while que garante a exibição do menu até que o usuário digite 0
         do {
-            System.out.println("\n--- GESTÃO DE PROFESSORES ---");
+            System.out.println("\n--- GESTAO DE PROFESSORES ---");
             System.out.println("1. Cadastrar Professor (Create)");
             System.out.println("2. Listar Professores (Read)");
             System.out.println("3. Atualizar Professor (Update)");
             System.out.println("4. Excluir Professor (Delete)");
             System.out.println("0. Voltar ao Menu Principal");
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
             
             opcao = scanner.nextInt(); // Lê a opção numérica digitada
             scanner.nextLine(); // Limpa o buffer do teclado para evitar erros nas próximas leituras de texto
@@ -62,7 +62,7 @@ public class MenuProfessor {
                     System.out.println("Voltando..."); // Mensagem informativa de saída do menu
                     break;
                 default:
-                    System.out.println("Opção inválida!"); // Mensagem caso o usuário digite um número fora das opções
+                    System.out.println("Opcao invalida!"); // Mensagem caso o usuário digite um número fora das opções
             }
         } while (opcao != 0); // Critério de parada do loop
     }
@@ -89,7 +89,7 @@ public class MenuProfessor {
             professorServico.cadastrar(id, nome, telefone, email, data, especialidade);
         } catch (Exception e) {
             // Captura qualquer entrada incorreta 
-            System.out.println("Erro nos dados digitados. Operação cancelada.");
+            System.out.println("Erro nos dados digitados. Operacao cancelada.");
         }
     }
 
@@ -115,7 +115,7 @@ public class MenuProfessor {
             // Envia os dados novos para a camada de serviço realizar a atualização
             professorServico.atualizarDados(id, nome, telefone, email, esp);
         } else {
-            System.out.println("Professor não encontrado."); // Informa caso o ID digitado não exista
+            System.out.println("Professor nao encontrado."); // Informa caso o ID digitado não exista
         }
     }
 

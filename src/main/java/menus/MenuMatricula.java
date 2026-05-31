@@ -50,14 +50,14 @@ public class MenuMatricula {
 
         do {
 
-            System.out.println("\n--- GESTÃO DE MATRÍCULAS ---");
-            System.out.println("1. Realizar Matrícula");
-            System.out.println("2. Listar Matrículas");
-            System.out.println("3. Buscar Matrícula por ID");
-            System.out.println("4. Cancelar Matrícula");
+            System.out.println("\n--- GESTAO DE MATRICULAS ---");
+            System.out.println("1. Realizar Matricula");
+            System.out.println("2. Listar Matriculas");
+            System.out.println("3. Buscar Matricula por ID");
+            System.out.println("4. Cancelar Matricula");
             System.out.println("0. Voltar ao Menu Principal");
 
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
 
             opcao = scanner.nextInt();
             scanner.nextLine();
@@ -85,7 +85,7 @@ public class MenuMatricula {
                     break;
 
                 default:
-                    System.out.println("Opção inválida!");
+                    System.out.println("Opcao invalida!");
             }
 
         } while (opcao != 0);
@@ -99,7 +99,7 @@ public class MenuMatricula {
 
         try {
 
-            System.out.print("ID da Matrícula: ");
+            System.out.print("ID da Matricula: ");
             int idMatricula =
                     scanner.nextInt();
             scanner.nextLine();
@@ -119,7 +119,7 @@ public class MenuMatricula {
             if (aluno == null) {
 
                 System.out.println(
-                        "Aluno não encontrado."
+                        "Aluno nao encontrado."
                 );
 
                 return;
@@ -143,7 +143,7 @@ public class MenuMatricula {
             if (curso == null) {
 
                 System.out.println(
-                        "Curso não encontrado."
+                        "Curso nao encontrado."
                 );
 
                 return;
@@ -172,12 +172,12 @@ public class MenuMatricula {
     private void listarMatriculas() {
 
         System.out.println(
-                "\n=== LISTA DE MATRÍCULAS ==="
+                "\n=== LISTA DE MATRICULAS ==="
         );
 
         if (matriculaServico.listarMatriculas().isEmpty()) {
             System.out.println(
-                    "Nenhuma matrícula cadastrada."
+                    "Nenhuma matricula cadastrada."
             );
 
         } else {
@@ -203,7 +203,7 @@ public class MenuMatricula {
     private void buscarMatricula() {
 
         System.out.print(
-                "Digite ID da matrícula: "
+                "Digite ID da matricula: "
         );
 
         int id =
@@ -223,7 +223,7 @@ public class MenuMatricula {
         } else {
 
             System.out.println(
-                    "Matrícula não encontrada."
+                    "Matricula nao encontrada."
             );
         }
     }
@@ -235,7 +235,7 @@ public class MenuMatricula {
     private void cancelarMatricula() {
 
         System.out.print(
-                "Digite o ID da matrícula: "
+                "Digite o ID da matricula: "
         );
 
         int id =

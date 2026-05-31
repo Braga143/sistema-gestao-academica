@@ -19,7 +19,7 @@ public class SistemaGestaoAcademica {
     public static void main(String[] args) {
 
         System.out.println("=============================================");
-        System.out.println("     SISTEMA DE GESTÃO ACADÊMICA");
+        System.out.println("     SISTEMA DE GESTAO ACADEMICA");
         System.out.println("=============================================");
 
         // ==========================
