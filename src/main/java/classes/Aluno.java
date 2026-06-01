@@ -5,10 +5,8 @@ import java.time.LocalDate;
 /**
  * Classe Aluno
  * Herda informações da classe Pessoa.
- * 
- * Aplicando conceito de HERANÇA da POO.
- * 
- * @author Windows
+ * * Aplicando conceito de HERANÇA da POO.
+ * * @author Windows
  */
 public class Aluno extends Pessoa {
     // 1. Atributos encapsulados (privados)
@@ -49,7 +47,7 @@ public class Aluno extends Pessoa {
     }
     
     // ==========================
-    // MÉTODO UTILITÁRIO
+    // MÉTODOS UTILITÁRIOS
     // ==========================
     
     /**
@@ -60,5 +58,21 @@ public class Aluno extends Pessoa {
     public void exibirInformacoes(){
         super.exibirInformacoes();
         System.out.println("Status: " + status);
+    }
+
+    // POLIMORFISMO DE SOBREPOSIÇÃO
+    /**
+     * Redefine o método toString para que a listagem no console 
+     * mostre os dados textuais legíveis em vez do endereço de memória.
+     */
+    @Override
+    public String toString() {
+        // getId(), getNome() e getEmail() buscam os dados encapsulados na classe base Pessoa
+        return "Aluno{" +
+                "id=" + getId() +
+                ", nome='" + getNome() + '\'' +
+                ", email='" + getEmail() + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }
