@@ -81,8 +81,10 @@ public class MenuPrincipal {
                     break;
 
                 case 3:
-
-                    System.out.println("Menu Curso ainda em desenvolvimento.");
+                    
+                    MenuCurso menuCurso = new MenuCurso(cursoServico);
+                    
+                    menuCurso.exibirMenu();
 
                     break;
 
